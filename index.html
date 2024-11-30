@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة المهام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-translate="title">قائمة المهام</h1>
+            <div class="header-controls">
+                <button id="lang-toggle" class="lang-toggle">English</button>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+        
+        <form id="task-form">
+            <input type="text" id="task-input" data-translate="inputPlaceholder" placeholder="أضف مهمة جديدة..." required>
+            <button type="submit" data-translate="addTask">إضافة</button>
+        </form>
+
+        <div class="tasks-controls">
+            <div class="filter-dropdown">
+                <select id="task-filter" class="dropdown-select">
+                    <option value="all" data-translate="filterAll">جميع المهام</option>
+                    <option value="active" data-translate="filterActive">قيد التنفيذ</option>
+                    <option value="completed" data-translate="filterCompleted">مكتملة</option>
+                </select>
+            </div>
+            
+            <div class="delete-dropdown">
+                <select id="delete-options" class="dropdown-select">
+                    <option value="" disabled selected data-translate="deleteOptions">خيارات الحذف</option>
+                    <option value="completed" data-translate="deleteCompleted">حذف المكتملة</option>
+                    <option value="active" data-translate="deleteActive">حذف قيد التنفيذ</option>
+                    <option value="all" data-translate="deleteAll">حذف الكل</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <ul id="tasks-list"></ul>
+            <p id="no-tasks" class="no-tasks hidden" data-translate="noTasks">لا توجد مهام</p>
+        </div>
+    </div>
+<div id="confirm-modal" class="modal-overlay">
+    <div class="confirm-modal">
+        <h3 data-translate="confirmTitle">تأكيد الحذف</h3>
+        <p data-translate="confirmDelete">هل أنت متأكد من حذف المهام المحددة؟</p>
+        <div class="modal-buttons">
+            <button id="cancel-delete" class="modal-btn modal-btn-cancel" data-translate="cancel">إلغاء</button>
+            <button id="confirm-delete" class="modal-btn modal-btn-confirm" data-translate="confirm">تأكيد</button>
+        </div>
+    </div>
+</div>
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="todo.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
